@@ -89,7 +89,7 @@ body::before {
 }
 
 .container__botao:disabled {
-    background-color: #5b6e8a; /* Cor para botão desabilitado */
+    background-color: #29323e; /* Cor para botão desabilitado */
     cursor: not-allowed; /* Cursor de "não permitido" */
 }
 
