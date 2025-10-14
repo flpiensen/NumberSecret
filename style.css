@@ -11,8 +11,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden; /* Para evitar scrollbars indesejadas */
 }
-
 
 body::before {
     background-image: url("img/code.png");
@@ -24,6 +24,7 @@ body::before {
     width: 100%;
     height: 100%;
     opacity: 0.4;
+    z-index: -1; /* Garante que o background fique atrás de todo o conteúdo */
 }
 
 .container {
@@ -38,18 +39,36 @@ body::before {
     background-image: url("img/Ruido.png");
     background-size: 100% 100%;
     position: relative;
+    padding: 20px; /* Adicionado padding para melhor espaçamento interno */
 }
 
+/* Modificação para alinhar o robô */
 .container__conteudo {
     display: flex;
     align-items: center;
-    position: absolute;
+    position: absolute; /* Usamos absolute no robô e vamos posicioná-lo */
     bottom: 0;
+    left: 0;
+    height: 100%; /* Para que o robô ocupe a altura total do container à esquerda */
+    width: 50%; /* Ocupa metade do container */
+    justify-content: center; /* Centraliza o robô horizontalmente na sua área */
 }
 
+.container__imagem-robo {
+    max-height: 100%; /* Garante que o robô não transborde */
+    width: auto; /* Mantém a proporção */
+}
+
+
 .container__informacoes {
-    flex: 1;
+    flex: 1; /* Ocupa o restante do espaço */
     padding: 20px;
+    display: flex; /* Adiciona flexbox para facilitar o layout interno */
+    flex-direction: column; /* Organiza os itens verticalmente */
+    justify-content: center; /* Centraliza o conteúdo verticalmente */
+    align-items: flex-start; /* Alinha os itens à esquerda */
+    margin-left: 50%; /* Empurra as informações para a direita, deixando espaço para o robô */
+    height: 100%; /* Garante que ocupe a altura total para alinhamento */
 }
 
 .container__botao {
@@ -61,6 +80,17 @@ body::before {
     font-weight: 700;
     border: none;
     margin-top: 16px;
+    cursor: pointer; /* Adiciona cursor de ponteiro para indicar que é clicável */
+    transition: background-color 0.3s ease; /* Transição suave para o hover */
+}
+
+.container__botao:hover {
+    background-color: #0f5bbd; /* Cor mais escura no hover */
+}
+
+.container__botao:disabled {
+    background-color: #5b6e8a; /* Cor para botão desabilitado */
+    cursor: not-allowed; /* Cursor de "não permitido" */
 }
 
 .container__texto {
@@ -85,4 +115,55 @@ button {
 h2 {
     font-size: 32px;
     font-weight: 400;
+}
+
+/* --- Novos estilos para o input e botões de jogo --- */
+
+.input-com-botoes {
+    display: flex; /* Usa flexbox para organizar o input e os botões */
+    flex-direction: column; /* Organiza em coluna */
+    align-items: flex-start; /* Alinha os itens à esquerda */
+    width: 100%;
+    max-width: 400px; /* Limita a largura para melhor leitura */
+    margin-top: 20px; /* Espaçamento superior */
+}
+
+.input-com-botoes p {
+    margin-bottom: 10px; /* Espaçamento abaixo do texto "Digite seu palpite" */
+    font-size: 18px;
+}
+
+#numeroDigitado {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1px solid #1875E8;
+    background-color: #041832; /* Cor de fundo escura */
+    color: white; /* Cor do texto */
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    margin-bottom: 15px; /* Espaçamento abaixo do input */
+    outline: none; /* Remove o contorno padrão no foco */
+}
+
+#numeroDigitado:focus {
+    border-color: #5bc0de; /* Cor da borda ao focar */
+    box-shadow: 0 0 8px rgba(24, 117, 232, 0.6); /* Sombra suave */
+}
+
+/* Estilos para os novos botões (reaproveitando o estilo de .container__botao) */
+#botaoChutar,
+#botaoReiniciar {
+    /* Herda a maioria dos estilos de .container__botao, mas podemos ajustar */
+    width: 100%; /* Ocupa a largura total da div pai */
+    margin-top: 10px; /* Espaçamento entre os botões */
+    background-color:#5a6268;
+}
+
+#botaoReiniciar {
+    background-color:#0f5bbd/* Cor diferente para o botão de reiniciar, se desejar */
+}
+
+#botaoReiniciar:hover {
+    background-color: #5a6268;
 }
