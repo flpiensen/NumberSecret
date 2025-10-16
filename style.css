@@ -89,7 +89,7 @@ body::before {
 }
 
 .container__botao:disabled {
-    background-color: #29323e; /* Cor para botão desabilitado */
+    background-color: #5b6e8a; /* Cor para botão desabilitado */
     cursor: not-allowed; /* Cursor de "não permitido" */
 }
 
@@ -157,11 +157,10 @@ h2 {
     /* Herda a maioria dos estilos de .container__botao, mas podemos ajustar */
     width: 100%; /* Ocupa a largura total da div pai */
     margin-top: 10px; /* Espaçamento entre os botões */
-    background-color:#5a6268;
 }
 
 #botaoReiniciar {
-    background-color:#0f5bbd/* Cor diferente para o botão de reiniciar, se desejar */
+    background-color: #6c757d; /* Cor diferente para o botão de reiniciar, se desejar */
 }
 
 #botaoReiniciar:hover {
